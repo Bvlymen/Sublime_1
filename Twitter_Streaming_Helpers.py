@@ -48,7 +48,7 @@ def Get_Twitter_Data_As_Pandas(C_Key, C_Secret, A_Token, A_Token_Secret, Max_Twe
     auth = tweepy.OAuthHandler(consumer_key=C_Key, consumer_secret=C_Secret)
     auth.set_access_token(A_Token, A_Token_Secret)
 
-    db_connection = MySQLdb.connect("localhost","root", "Snapper@australia90", "tweet_store", charset = 'utf8mb4')
+    db_connection = MySQLdb.connect("localhost","root", "Pass", "tweet_store", charset = 'utf8mb4')
     cursor = db_connection.cursor()
 
     tweet_add_milestone = int(Max_Tweets/5)
@@ -181,7 +181,7 @@ def Get_Twitter_Data_As_Pandas(C_Key, C_Secret, A_Token, A_Token_Secret, Max_Twe
     
     # ## Read the tweets database  to Pandas
     # First create the engine to connect to the database
-    engine = sqlalchemy.create_engine('mysql+mysqldb://root:Snapper@australia90@localhost/tweet_store')
+    engine = sqlalchemy.create_engine('mysql+mysqldb://root:pass@localhost/tweet_store')
     #Set up a metadata object to track table metadata
     meta_data = sqlalchemy.MetaData()
     tweet_table = sqlalchemy.Table(Table_Name, meta_data, autoload=True, autoload_with=engine)
@@ -262,7 +262,7 @@ def Stream_Twitter_Data_MYSQL(C_Key, C_Secret, A_Token, A_Token_Secret, Max_Twee
     auth = tweepy.OAuthHandler(consumer_key=C_Key, consumer_secret=C_Secret)
     auth.set_access_token(A_Token, A_Token_Secret)
 
-    db_connection = MySQLdb.connect("localhost","root", "Snapper@australia90", "tweet_store", charset = 'utf8mb4')
+    db_connection = MySQLdb.connect("localhost","root", "pass", "tweet_store", charset = 'utf8mb4')
     cursor = db_connection.cursor()
 
     tweet_add_milestone = int(Max_Tweets/5)
@@ -332,7 +332,7 @@ def Stream_Twitter_Data_MYSQL(C_Key, C_Secret, A_Token, A_Token_Secret, Max_Twee
     print("Database Server Successfully written to and MySQL server stopped")
 
     # First create the engine to connect to the database
-    engine = sqlalchemy.create_engine('mysql+mysqldb://root:Snapper@australia90@localhost/tweet_store')
+    engine = sqlalchemy.create_engine('mysql+mysqldb://root:pass@australia90@localhost/tweet_store')
     #Set up a metadata object to track table metadata
     meta_data = sqlalchemy.MetaData()
     tweet_table = sqlalchemy.Table(Table_Name, meta_data, autoload=True, autoload_with=engine)
